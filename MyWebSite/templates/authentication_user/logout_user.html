@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+    <div class="logout-box">
+
+        <div class="text-center mb-4">
+            <h1 class="logout-title">Logout</h1>
+            <p class="logout-text">
+                Are you sure you want to logout?
+            </p>
+        </div>
+
+        <form action="{% url 'authorization_user:logout-user' %}"
+              method="POST">
+
+            {% csrf_token %}
+
+            <button type="submit"
+                    class="btn btn-danger w-100 logout-btn">
+                Logout Now
+            </button>
+
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/"
+               class="back-home">
+                ← Back to Home
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<link rel="stylesheet"
+      href="{% static 'authentication_user/css/logout_user.css' %}">
+
+{% endblock %}
